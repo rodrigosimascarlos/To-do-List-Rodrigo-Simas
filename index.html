@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <style>
@@ -13,7 +13,7 @@
         margin: 0;
     }
 
-    .formulario {
+    .form {
         width: 400px;
         background-color: white;
         margin: 50px auto;
@@ -21,13 +21,21 @@
         box-shadow: 0px 3px 7px 3px rgba(0, 0, 0, 0.2);
     }
 
-    .formulario h3 {
+    .form h3 {
         text-align: center;
         padding: 8px;
     }
 
     .dentro {
         padding: 10px;
+        position: relative;
+    }
+
+    .dentro .fa {
+        position: absolute;
+        top: 50%;
+        right: 8%;
+        display: none;
     }
 
     input[type = text], input[type = email], input[type =password] {
@@ -54,33 +62,106 @@
     }
 </style>
 <body>
-    <form class="formulario">
+    <form class="form">
         <h3>Login</h3>
+
         <div class="dentro">
-            <label for="=nome">Insira seu Nome</label><br>
-            <input type="text" name="nome" placeholder="Nome" id="n">
+            <label for="=nome">insira seu nome aqui</label><br>
+            <input type="text" name="nome" class="input" placeholder="Nome" id="nome">
+            
         </div>
+
         <div class="dentro">
-            <label for="=login">Insira seu Login</label><br>
-            <input type="text" name="login" placeholder="Login" id="l">
+            <label for="=login">Insira seu login</label><br>
+            <input type="text" name="login" class="input" placeholder="Login" id="login">
+                    
         </div>
+        
         <div class="dentro">
             <label for="=email">Insira seu Email</label><br>
-            <input type="email" name="email" placeholder="Email" id="e">
+            <input type="email" name="email" class="input" placeholder="Email" id="email">
+            
         </div>
+
         <div class="dentro">
             <label for="=senha">Insira sua senha</label><br>
-            <input type="password" name="senha1" placeholder="Senha" id="s1">
+            <input type="password" name="senha" class="input" placeholder="Senha" id="sen">
         </div>
+
+        
+
         <div class="dentro">
             <label for="=senha">Confirme sua senha</label><br>
-            <input type="password" name="senha2" placeholder="Senha" id="s2">
+            <input type="password" name="senha2" class="input" placeholder="reescreva sua senha aqui" id="sen2">
+           
         </div>
+
         <div class="dentro">
-            <input type="submit" name="botaol" value="Login">
+            <input type="submit" name="login" value="Login">
         </div>
 
     </form>
 
+<script>
+
+const campos = document.querySelectorAll('.input');
+
+
+var nome = document.querySelector('#nome');
+nome.addEventListener('keyup', function(){
+    if (nome.value.length < 6) {
+        nome.style.border = '1px solid red';
+        return false;
+    } else {
+        nome.style.border = '1px solid green';
+    }
+})
+
+var login = document.querySelector('#login');
+login.addEventListener('keyup', function(){
+    if (login.value.length < 6) {
+        login.style.border = '1px solid red';
+        return false;
+    } else {
+        login.style.border = '1px solid green';
+    }
+})
+
+var email = document.querySelector('#email');
+email.addEventListener('keyup', function(){
+    if (email.value.length < 6) {
+        email.style.border = '1px solid red';
+        return false;
+    } else {
+        email.style.border = '1px solid green';
+    }
+})
+
+
+
+var sen = document.querySelector('#sen');
+sen.addEventListener('keyup', function(){
+    if (sen.value.length < 6) {
+        sen.style.border = '1px solid red';
+        return false;
+    } else {
+        sen.style.border = '1px solid green';
+    }
+})
+
+var sen2 = document.querySelector('#sen2');
+sen2.addEventListener('keyup', function(){
+    const sen = document.getElementById('sen');
+    const sen2 = document.getElementById('sen2');
+    if (sen.value.length<6 || campos[4].value !== campos[3].value) {
+        sen2.style.border = '1px solid red';
+        return false;
+    } else  {
+        sen2.style.border = '1px solid green';
+    }
+})
+
+
+</script>
 </body>
 </html>
