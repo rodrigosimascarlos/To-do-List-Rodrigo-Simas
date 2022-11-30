@@ -12,7 +12,6 @@
         padding: 0;
         margin: 0;
     }
-
     .form {
         width: 400px;
         background-color: white;
@@ -50,7 +49,7 @@
     }
 
     input[type = submit] {
-        background-color: darkblue;
+        background-color: rgb(64, 64, 161);
         width: 100%;
         height: 37px;
         color: white;
@@ -62,7 +61,7 @@
     }
 </style>
 <body>
-    <form class="form">
+    <form class="form" onsubmit=" return validate()">
         <h3>Login</h3>
 
         <div class="dentro">
@@ -109,7 +108,7 @@ const campos = document.querySelectorAll('.input');
 
 var nome = document.querySelector('#nome');
 nome.addEventListener('keyup', function(){
-    if (nome.value.length < 6) {
+    if (nome.value.length < 11) {
         nome.style.border = '1px solid red';
         return false;
     } else {
@@ -119,7 +118,7 @@ nome.addEventListener('keyup', function(){
 
 var login = document.querySelector('#login');
 login.addEventListener('keyup', function(){
-    if (login.value.length < 6) {
+    if (login.value.length > 9) {
         login.style.border = '1px solid red';
         return false;
     } else {
@@ -160,6 +159,14 @@ sen2.addEventListener('keyup', function(){
         sen2.style.border = '1px solid green';
     }
 })
+
+
+function validate() {
+    //if ((nome = true) && (login = true) && (login = true) && (login = true) && (login=true)) {
+        window.open("To_do.html");
+    //}
+
+}
 
 
 </script>
